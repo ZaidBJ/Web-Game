@@ -1,0 +1,127 @@
+#canvas{
+margin-left: 240px;
+margin-top: 20px;
+}
+
+
+
+
+@keyframes blink{
+  0%{     opacity:  1}
+  10%{     opacity:  1 }
+  11%{opacity:  0}
+  12%{opacity: 1}
+  21%{     opacity:  1}
+  23%{     opacity:  0 }
+  24%{opacity:  1}
+  32%{opacity: 1}
+  33%{     opacity:  0}
+  34%{     opacity:  1 }
+  43%{opacity:  1}
+  44%{opacity: 0}
+  45%{     opacity:  1}
+  54%{     opacity:  1 }
+  55%{opacity:  0}
+  56%{opacity: 1}
+  65%{     opacity:  1}
+  66%{     opacity:  0 }
+  67%{opacity:  1}
+  76%{opacity: 1}
+  77%{     opacity:  0}
+  78%{     opacity:  1 }
+  88%{opacity:  1}
+  89%{opacity: 0}
+  97%{     opacity:  1}
+  98%{     opacity:  0 }
+
+  100%{opacity: 1}
+}
+
+
+
+
+#hero{
+  width:13%;
+  margin-left: 13px;
+  height: 22px;
+  position: absolute;
+  top: 325px;
+  z-index: 2;
+}
+
+#hero_attackLimit{
+  width:13%;
+  margin-left: 13px;
+  height: 8px;
+  position: absolute;
+  top: 325px;
+  z-index: 2;
+}
+
+
+
+#villain{
+  width:14%;
+  margin-left: 1290px;
+  height: 22px;
+  position: absolute;
+  top: 325px;
+  z-index: 2;
+}
+
+#villain_attackLimit{
+
+    width:14%;
+    margin-left: 1290px;
+    height: 8px;
+    position: absolute;
+    top: 325px;
+    z-index: 2;
+
+}
+
+
+#down{
+  z-index: 1;
+}
+
+#hero_a{
+  border-radius: 50%;
+  position: absolute;
+  left: 1350px;
+  top:190px;
+
+}
+
+
+
+#villain_a{
+  position: absolute;
+  left:60px;
+  top:190px;
+  border-radius: 50%;
+}
+
+.res{
+  position: absolute;
+  top:360px;
+  left:580px;
+  animation-name: blink;
+  animation-duration: 6s;
+  color: red;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.res_hero{
+  position: absolute;
+  top:360px;
+  left:580px;
+  animation-name: blink;
+  animation-duration: 6s;
+  color: green;
+  font-style: oblique;
+  font-weight: bold;
+  font-size:80px;
+}

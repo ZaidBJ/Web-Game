@@ -1,0 +1,38 @@
+.drago{width: 750px;
+height: 700px;
+
+
+}
+#right{
+position: absolute;
+left:750px;
+}
+
+
+@keyframes movel {
+  0%{position: absolute; left: 0px;  }
+  100%{position: absolute;left: -850px}
+
+}
+
+@keyframes mover {
+  0%{position: absolute; left: 750px;}
+  100%{position: absolute;left: 1620px;}
+
+}
+
+.moveLeft{
+
+  animation-name:movel;
+ animation-duration: 3s;
+}
+
+.moveRight{
+
+  animation-name:mover;
+ animation-duration: 3s;
+}
+
+.wipe{
+  display: none;
+}
