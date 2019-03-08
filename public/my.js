@@ -76,12 +76,15 @@ logout.addEventListener("click",function(){
   decide(cook);
   var cookie=get_cookie(cook);
   console.log(cookie);
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/logout", true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-if(tok)
-      xhr.send("cookie="+cookie);
+
+
 del_cookie('m');
+del_cookie('player')
 
 });
+
+
+
+var link=document.getElementById("player_name").innerHTML;
+ document.cookie = "player=" +link ;

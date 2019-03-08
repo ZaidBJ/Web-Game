@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+      <link rel="stylesheet" href="game.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color:#f2f2f2;">
+      <a class="navbar-brand" id="restart" >New Game</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"p></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"> <%=name%> <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logn">Home</a>
+          </li>
+          <li class="nav-item">
+       <a class="nav-link" id="logout" href="/logout">LogOut</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled"  ></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div id="hero" class="progress">
+   <div id="villain1" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<div id="hero_attackLimit" class="progress">
+  <div id="hero_limit" class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+
+<div id="villain" class="progress">
+<div  id="hero1" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<div id="villain_attackLimit" class="progress">
+  <div id="villain_limit" class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div id="result"></div>
+
+<div id="down">
+    <canvas id="canvas" width="1000" height="650"  style="border:10px solid #000000;"></canvas>
+    <img src="bg.png" id="bg" width="0.5" height="0.5">
+      <img src="char.png" id="stand" width="0" height="0">
+        <img src="char_1.png" id="stand_1" width="0" height="0">
+          <img src="attacked_r.png" id="char_attack" width="0" height="0">
+            <img src="kick.png" id="char_kick" width="0" height="0">
+                <img src="bg right.png" id="bg_right" width="0" height="0">
+                    <img src="bg end close.png" id="bg_right_end" width="0" height="0">
+                      <img src="bg end.png" id="bg_end" width="0" height="0">
+                          <img src="head.png" id="head" width="0" height="0">
+                            <img src="kameha.png" id="kameha" width="0" height="0">
+                            <img src="power_ball.png" id="power_ball" width="0" height="0">
+                              <img src="power_ready.png" id="power_ready" width="0" height="0">
+                              <img src="attack_go.png" id="attack_go" width="0" height="0">
+                                <img src="char_jump.png" id="char_jump" width="0" height="0">
+                                <img src="laser.png" id="laser" width="0" height="0">
+                                <img src="villain_stand1.png" id="villain_stand" width="0" height="0">
+                                <img src="villain_stand3.png" id="villain_stand1" width="0" height="0">
+                                  <img src="villain_kickr0.png" id="villain_kick" width="0" height="0">
+                                       <img src="villain_punch.png" id="villain_punch" width="0" height="0">
+                                           <img src="villain_rhead.png" id="villain_rhead" width="0" height="0">
+                                                    <img src="villain_kameha1.png" id="villain_kameha" width="0" height="0">
+                                                      <img src="villain_energy_ball.png" id="villain_energy_ball" width="0" height="0">
+                                                          <img src="villain_jumpKar1.png" id="villain_jump" width="0" height="0">
+                                                            <img src="villain_powerReady.png" id="villain_powerReady" width="0" height="0">
+                                                              <img src="villain_powerGo.png" id="villain_powerGo" width="0" height="0">
+                                                                 <img src="villain_powerBeam.png" id="villain_energyBeam" width="0" height="0">
+                                                                    <img src="char_defence.png" id="char_defence" width="0" height="0">
+                                                                        <img src="villain_defence.png" id="villain_defence" width="0" height="0">
+                                                                          <img src="villain_injured.png" id="villain_injured" width="0" height="0">
+                                                                           <img src="villain_fall.png" id="villain_fall" width="0" height="0">
+                                                                           <img src="villain_standUp.png" id="villain_standUp" width="0" height="0">
+                                                                           <img src="villain_air.png" id="villain_air" width="0" height="0">
+                                                                           <img src="char_hurt.png" id="char_hurt" width="0" height="0">
+                                                                            <img src="hero_fall.png" id="hero_fall" width="0" height="0">
+                                                                            <img src="hero_standUp.png" id="hero_standUp" width="0" height="0">
+                                                                                <img src="hero.png" id="hero_a" width="100" height="100">
+                                                                                   <img src="villain.png" id="villain_a" width="100" height="100">
+                                                                                   <img src="explosion.png" id="explosion" width="0" height="0">
+                                                                                    <img src="villain_up.png" id="villain_up" width="0" height="0">
+                                                                                      <img src="villain_upa.png" id="villain_upa" width="0" height="0">
+                                                                                        <img src="villain_upb.png" id="villain_upb" width="0" height="0">
+                                                                                        <img src="char_move_not.png" id="char_move_not" width="0" height="0">
+
+
+
+                                                                                   <audio id="myAudio">
+
+                                                                                     <source src="music.mp3" type="audio/mpeg">
+
+                                                                                   </audio>
+
+</div>
+     <script type="text/javascript" src="multi.js"></script>
+
+  </body>
+
+</html>

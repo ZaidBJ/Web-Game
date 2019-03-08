@@ -1,3 +1,68 @@
+
+
+
+function del_cookie(name) {
+   document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+}
+
+var tok=false;
+
+
+function decide(cook){
+  var text="";
+
+    for(var i=0;i<cook.length;i++)
+    {if(cook[i]==";")
+    text="";
+    else {
+
+      if(text==" m="){
+      text="";
+      tok=true;
+          break;
+
+  }
+
+
+
+
+    text+=cook[i];
+
+      }
+    }
+
+
+}
+
+
+
+
+function get_cookie(cook){
+var text="";
+
+  for(var i=0;i<cook.length;i++)
+  {if(cook[i]==";")
+  text="";
+  else {
+
+    if(text==" m="){
+    text="";
+
+}
+
+  text+=cook[i];
+    }
+  }
+
+  return text;
+}
+
+
+
+
+
+
+
 var ctx=document.getElementById("canvas").getContext("2d");
 var bg=document.getElementById("bg");
 var char=document.getElementById("stand");
@@ -1078,3 +1143,19 @@ defence_hero=true
 }
 }
 );
+
+
+
+var logout=document.getElementById("logout");
+logout.addEventListener("click",function(){
+  var cook=document.cookie;
+  decide(cook);
+  var cookie=get_cookie(cook);
+  console.log(cookie);
+
+
+
+del_cookie('m');
+del_cookie('player')
+
+});

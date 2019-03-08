@@ -36,3 +36,39 @@ left:750px;
 .wipe{
   display: none;
 }
+
+#single_Game{
+position:absolute;
+top :300px;
+left:700px;
+  align:center;
+}
+
+#multi_Game{
+  position:absolute;
+  top :400px;
+  left:700px;
+}
+
+#h{
+  color:#B3B3B3;
+}
+
+#player_name{
+  margin-left: 20px;
+}
+
+.intro{
+  opacity: 0.32;
+}
+
+#im1{
+  position: absolute;
+  top:225px;
+left:150px;}
+
+#im2{
+  position: absolute;
+  top: 200px;
+  left:1000px;
+}
